@@ -22,7 +22,11 @@ const ReportPage: React.FC = () => {
         }
       });
 
-      
+      if (response.status === 401) {
+        console.log(401)
+      } else {
+        console.log((await response.json()).reports)
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
